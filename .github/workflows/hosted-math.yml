@@ -1,0 +1,88 @@
+name: Hosted mathematics
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+    paths:
+      - '.github/workflows/hosted-math.yml'
+      - 'verification/hosted_math/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: hosted-math-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+jobs:
+  capture:
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CAPTURE_REVISION: '4d1fe70c0884daa862606f94137d929ac5eacf68'
+    steps:
+      - name: Check out validation helpers
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - name: Check out the exact scientific revision
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: ${{ env.CAPTURE_REVISION }}
+          path: checked-source
+          persist-credentials: false
+      - name: Set up Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Install the read-only capture runtime
+        run: |
+          npm install --prefix "$RUNNER_TEMP/math-runtime" playwright@1.56.1 mathjax-full@3.2.1
+          node "$RUNNER_TEMP/math-runtime/node_modules/playwright/cli.js" install chromium
+      - name: Probe a proof page at both widths
+        continue-on-error: true
+        run: |
+          export NODE_PATH="$RUNNER_TEMP/math-runtime/node_modules"
+          node verification/hosted_math/probe_hosted_math.cjs \
+            --root "$GITHUB_WORKSPACE/checked-source" \
+            --repository "$GITHUB_REPOSITORY" \
+            --revision "$CAPTURE_REVISION" \
+            --page science/model.md \
+            --output "$RUNNER_TEMP/hosted-probe"
+      - name: Compare the hosted scientific and learning pages
+        shell: bash
+        run: |
+          export NODE_PATH="$RUNNER_TEMP/math-runtime/node_modules"
+          capture=(
+            node verification/hosted_math/capture_hosted_math.cjs
+            --root "$GITHUB_WORKSPACE/checked-source"
+            --repository "$GITHUB_REPOSITORY"
+            --revision "$CAPTURE_REVISION"
+            --page science/model.md
+          )
+          if "${capture[@]}" --output "$RUNNER_TEMP/hosted-math"; then
+            exit 0
+          else
+            status=$?
+          fi
+          report="$RUNNER_TEMP/hosted-math/hosted-report.json"
+          if test -f "$report" && grep -Eq 'HTTP 50[234]' "$report"; then
+            mv "$RUNNER_TEMP/hosted-math" "$RUNNER_TEMP/hosted-math-first"
+            "${capture[@]}" --output "$RUNNER_TEMP/hosted-math" \
+              --resume-from "$RUNNER_TEMP/hosted-math-first"
+          else
+            exit "$status"
+          fi
+      - name: Retain public-page captures and the report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: hosted-math-${{ env.CAPTURE_REVISION }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/hosted-math
+            ${{ runner.temp }}/hosted-math-first
+            ${{ runner.temp }}/hosted-probe
+          if-no-files-found: warn
+          retention-days: 14
