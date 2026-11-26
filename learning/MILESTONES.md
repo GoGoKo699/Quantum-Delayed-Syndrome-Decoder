@@ -19,7 +19,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** What happens to an unknown quantum data qubit when one physical bit flips?
 
-**Understanding target.** Describe how a Pauli $X$ acts on one physical site of an encoded register. Associate each possible error event with a classical hidden bit while the data state can remain an arbitrary quantum superposition.
+**Understanding target.** Describe how a Pauli $`X`$ acts on one physical site of an encoded register. Associate each possible error event with a classical hidden bit while the data state can remain an arbitrary quantum superposition.
 
 **Prerequisites.** None within this map.
 
@@ -31,7 +31,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** What does a repetition-code check say about errors at adjacent sites?
 
-**Understanding target.** Starting from the $+1$ eigenspace of $Z_iZ_{i+1}$, use Pauli anticommutation to obtain the parity $x_i\oplus x_{i+1}$ of the two physical flip bits. Use a chain of these check values to reconstruct a candidate pattern from one chosen bit.
+**Understanding target.** Starting from the $`+1`$ eigenspace of $`Z_iZ_{i+1}`$, use Pauli anticommutation to obtain the parity $`x_i\oplus x_{i+1}`$ of the two physical flip bits. Use a chain of these check values to reconstruct a candidate pattern from one chosen bit.
 
 **Prerequisites.** [M01](#m01-a-physical-bit-flip).
 
@@ -67,7 +67,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** How can two different errors give flag states that cannot be perfectly distinguished?
 
-**Understanding target.** Put two pure flag states in a basis where a change of error bit flips the relative sign and leaves both squared amplitudes unchanged. Compute their inner product $c_i$ from those two weights.
+**Understanding target.** Put two pure flag states in a basis where a change of error bit flips the relative sign and leaves both squared amplitudes unchanged. Compute their inner product $`c_i`$ from those two weights.
 
 **Prerequisites.** [M01](#m01-a-physical-bit-flip).
 
@@ -79,7 +79,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** How does an entire pattern act on the product flag?
 
-**Understanding target.** For a basis string $z$, derive a coefficient with a fixed magnitude and sign $(-1)^{x\cdot z}$. Compute the inner product of two product flags as the product of the individual overlaps at the sites where their patterns differ.
+**Understanding target.** For a basis string $`z`$, derive a coefficient with a fixed magnitude and sign $`(-1)^{x\cdot z}`$. Compute the inner product of two product flags as the product of the individual overlaps at the sites where their patterns differ.
 
 **Prerequisites.** [M02](#m02-adjacent-parity-checks), [M05](#m05-a-single-quantum-flag).
 
@@ -91,7 +91,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** How do original error probabilities become the priors for a binary readout?
 
-**Understanding target.** For a pair of pattern weights $a,b$, identify $a+b$ as the probability of seeing their syndrome and $a/(a+b),b/(a+b)$ as the probabilities once that syndrome is known. Under independent equal-rate physical flips, connect the weights to the number of flipped sites.
+**Understanding target.** For a pair of pattern weights $`a,b`$, identify $`a+b`$ as the probability of seeing their syndrome and $`a/(a+b),b/(a+b)`$ as the probabilities once that syndrome is known. Under independent equal-rate physical flips, connect the weights to the number of flipped sites.
 
 **Prerequisites.** [M03](#m03-complementary-errors-and-logical-failure).
 
@@ -103,7 +103,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** How does a branch operator specify the classical outcome and the surviving qubit?
 
-**Understanding target.** Relate $K_y$ to its effect $K_y^\dagger K_y$, its probability and its normalized output state. Use the sum of effects to check that the operation accepts all inputs.
+**Understanding target.** Relate $`K_y`$ to its effect $`K_y^\dagger K_y`$, its probability and its normalized output state. Use the sum of effects to check that the operation accepts all inputs.
 
 **Prerequisites.** [M05](#m05-a-single-quantum-flag).
 
@@ -153,7 +153,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** Which basis amplitudes respond differently when the two candidate errors are complements?
 
-**Understanding target.** Identify the even and odd sectors of the flag basis. Show that complementing all error bits changes the phase precisely on the odd sector. Compute the two sector weights $A,B$ and read their difference as the full candidate overlap.
+**Understanding target.** Identify the even and odd sectors of the flag basis. Show that complementing all error bits changes the phase precisely on the odd sector. Compute the two sector weights $`A,B`$ and read their difference as the full candidate overlap.
 
 **Prerequisites.** [M03](#m03-complementary-errors-and-logical-failure), [M06](#m06-product-flags-and-phase-characters).
 
@@ -189,7 +189,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** What do the classical branch and its qubit tell the decoder?
 
-**Understanding target.** Apply one branch operator to the product flag. Show that its probability is independent of the hidden error pattern and its normalized output has sector weights $A,B$ and relative sign $(-1)^{x\cdot(u\oplus v)}$.
+**Understanding target.** Apply one branch operator to the product flag. Show that its probability is independent of the hidden error pattern and its normalized output has sector weights $`A,B`$ and relative sign $`(-1)^{x\cdot(u\oplus v)}`$.
 
 **Prerequisites.** [M06](#m06-product-flags-and-phase-characters), [M14](#m14-build-a-complete-fusion-instrument).
 
@@ -285,11 +285,11 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** Where do the incompatible measurements come from in the finite example?
 
-**Understanding target.** Compare the representative patterns $0001$ and $0011$, each with its complement, at physical error probability $1/4$. Explain why one syndrome has biased pattern weights and the other equal weights. Trace the resulting Bloch-axis rotations into the overlap matrix and use its norm violation to certify a strict total-risk gap.
+**Understanding target.** Compare the representative patterns $`0001`$ and $`0011`$, each with its complement, at physical error probability $`1/4`$. Explain why one syndrome has biased pattern weights and the other equal weights. Trace the resulting Bloch-axis rotations into the overlap matrix and use its norm violation to certify a strict total-risk gap.
 
 **Prerequisites.** [M07](#m07-pattern-weights-and-conditional-priors), [M12](#m12-split-the-input-amplitudes-by-parity), [M22](#m22-a-test-using-cross-syndrome-overlaps).
 
-**Conceptual connection.** This gap concerns one declared finite instance and applies to arbitrary early collective measurements. At flag overlap $99/100$, the certificate lower-bounds the logical error gap by $2.5\times10^{-6}$.
+**Conceptual connection.** This gap concerns one declared finite instance and applies to arbitrary early collective measurements. At flag overlap $`99/100`$, the certificate lower-bounds the logical error gap by $`2.5\times10^{-6}`$.
 
 **Canonical sources.** [Early readout comparison](../science/early-readout.md) · [Verification](../verification/README.md).
 
@@ -357,7 +357,7 @@ The single educational anchor is John Watrous's *The Theory of Quantum Informati
 
 **Central question.** What guarantee replaces equal pair overlaps when a syndrome leaves several candidates?
 
-**Understanding target.** Follow a branch with one representative basis index per character and explain how the received syndrome removes the resulting known phases. Compare the conditional Gram matrices of the original and compressed ensembles. Use equality to recover optimal discrimination with $k$ persistent qubits for a kernel of dimension $k$. For an instrument required to preserve the optimum for every prior, explain how two prior ratios force an isometry on each candidate-pair span and how the pair constraints make the width sharp.
+**Understanding target.** Follow a branch with one representative basis index per character and explain how the received syndrome removes the resulting known phases. Compare the conditional Gram matrices of the original and compressed ensembles. Use equality to recover optimal discrimination with $`k`$ persistent qubits for a kernel of dimension $`k`$. For an instrument required to preserve the optimum for every prior, explain how two prior ratios force an isometry on each candidate-pair span and how the pair constraints make the width sharp.
 
 **Prerequisites.** [M13](#m13-couple-the-sector-weights), [M19](#m19-match-the-full-record-optimum), [M28](#m28-replace-parity-by-kernel-characters).
 

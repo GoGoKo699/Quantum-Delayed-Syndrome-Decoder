@@ -2,13 +2,13 @@
 
 **How many qubits of error information should a decoder keep while it waits for the syndrome?** For a repetition code with nonorthogonal qubit flags, one. A streaming instrument fuses the flags as they arrive. After the syndrome, the retained qubit and a classical index give the same minimum logical error as a collective measurement that waits with all the flags.
 
-In a four-site example with independent bit flips of probability $1/4$ and flag overlap $0.99$, any joint measurement that keeps only classical information before the syndrome has logical error more than $2.5\times10^{-6}$ above the delayed optimum. The ideal full-record and streaming error is approximately $0.1225991921$. The certified streaming advantage survives an independent final phase flip of probability up to $1.9\times10^{-5}$.
+In a four-site example with independent bit flips of probability $`1/4`$ and flag overlap $`0.99`$, any joint measurement that keeps only classical information before the syndrome has logical error more than $`2.5\times10^{-6}`$ above the delayed optimum. The ideal full-record and streaming error is approximately $`0.1225991921`$. The certified streaming advantage survives an independent final phase flip of probability up to $`1.9\times10^{-5}`$.
 
 | Question | Result |
 | --- | --- |
 | What is sufficient for an arbitrary-length repetition block? | One persistent qubit, a classical index and one fusion per flag after the first |
 | Can a purely classical record match it? | It cannot attain the ideal optimum in the biased four-flag example. At equal priors a collective early measurement can attain the optimum. |
-| What changes for a binary linear syndrome $Hx=s$? | $k=\dim\ker H$ coherent qubits preserve every conditional decision. They are necessary for a fixed early instrument that must work for all priors on a syndrome class with a nonconstant decision label. |
+| What changes for a binary linear syndrome $`Hx=s`$? | $`k=\dim\ker H`$ coherent qubits preserve every conditional decision. They are necessary for a fixed early instrument that must work for all priors on a syndrome class with a nonconstant decision label. |
 
 ## Read the science
 
