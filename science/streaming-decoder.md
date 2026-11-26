@@ -32,7 +32,7 @@ The string $u\oplus v$ has odd parity. On two bits this selects exactly one inpu
 3. Receive the syndrome $s$. Compute the bit of $r_s$ at the retained index. Use it to identify which accumulator state corresponds to $r_s$.
 4. Apply the binary Holevo–Helstrom measurement with the known conditional priors and return the indicated Pauli correction.
 
-The classical fusion outcome law is independent of the entire error string, so conditioning on the retained index leaves the priors intact. Each original candidate pair and its compressed pair have the same Gram matrix after a known phase convention. Equivalently, there is an isometry between the two candidate spans after the syndrome is known. Therefore the last measurement achieves exactly the full-record optimum for every possible prior, rather than only preserving the average optimum for a specific distribution.
+The classical fusion outcome law is independent of the entire error string, so conditioning on the retained index leaves the priors intact. Each original candidate pair and its compressed pair have the same Gram matrix after a known phase convention. Equivalently, there is an isometry between the two candidate spans after the syndrome is known. Therefore the last measurement achieves exactly the full-record optimum for every possible prior.
 
 ## Resources and implementation
 
