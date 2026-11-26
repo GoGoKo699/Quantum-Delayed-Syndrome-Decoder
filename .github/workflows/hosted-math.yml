@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     env:
-      CAPTURE_REVISION: '68d22ab283d2cb3f8ec64c405f1799fe5eea7ec4'
+      CAPTURE_REVISION: '14e43b5e8e5c5720b07f35b98dcf8ec934b275dd'
     steps:
       - name: Check out validation helpers
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
@@ -49,7 +49,7 @@ jobs:
             --root "$GITHUB_WORKSPACE/checked-source" \
             --repository "$GITHUB_REPOSITORY" \
             --revision "$CAPTURE_REVISION" \
-            --page README.md \
+            --page science/linear-syndromes.md \
             --output "$RUNNER_TEMP/hosted-probe"
       - name: Compare the hosted scientific and learning pages
         shell: bash
