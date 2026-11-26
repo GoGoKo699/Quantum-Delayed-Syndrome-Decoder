@@ -1,0 +1,21 @@
+# Quantum Delayed Syndrome Decoder
+
+> A streaming instrument preserves the exact flag-discrimination optimum with one coherent qubit for a delayed repetition-code syndrome. A four-flag biased example certifies a strict gap against immediate joint measurement followed by classical storage.
+
+## Scientific route
+
+- [Read the project](README.md)
+- [Error model and syndrome interface](science/model.md)
+- [Two-flag fusion and resource accounting](science/streaming-decoder.md)
+- [Early collective and adaptive single-flag benchmarks](science/early-readout.md)
+- [Final storage noise and phase propagation through fusions](science/noise.md)
+- [Binary linear syndromes and dimension converse](science/linear-syndromes.md)
+- [Prior work](references/RELATED_WORK.md)
+
+## Learning and reproduction
+
+- [Watrous bridge](learning/WATROUS_BRIDGE.md)
+- [30 milestones](learning/MILESTONES.md)
+- [Verification commands and expected outputs](verification/README.md)
+
+Preserve the timing of the syndrome, the pure flagged Pauli model and the distinction between a fixed-prior comparison and the all-prior memory converse. The adaptive single-flag exponent has a different scope from the finite bound against arbitrary early joint POVMs. Noise statements specify their channel and point of occurrence.
