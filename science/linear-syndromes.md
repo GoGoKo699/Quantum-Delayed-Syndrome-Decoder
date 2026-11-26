@@ -13,7 +13,7 @@ There is a single early instrument, independent of the syndrome and the error pr
 
 ## Track the characters of the kernel
 
-Choose an $`n\times k`$ binary matrix $`G`$ whose columns form a basis of $`C`$. The $`i`$th row, written as a column, is $`h_i\in\mathbb F_2^k`$. Let $`V_i=\operatorname{span}(h_1,\ldots,h_i)`$ and $`k_i=\dim V_i`$, with $`V_0=\{0\}`$.
+Choose an $`n\times k`$ binary matrix $`G`$ whose columns form a basis of $`C`$. The $`i`$th row, written as a column, is $`h_i\in\mathbb F_2^k`$. Let $`V_i=\mathrm{span}(h_1,\ldots,h_i)`$ and $`k_i=\dim V_i`$, with $`V_0=\{0\}`$.
 
 In the computational basis the product flag has amplitude $`\sqrt{p(z)}(-1)^{z\cdot x}`$ at $`z\in\mathbb F_2^n`$, where $`p(z)`$ is the probability of a string of independent bits with $`\Pr(z_i=1)=q_i`$. At fixed $`s`$, choose a representative $`r_s`$ with $`Hr_s=s`$. Write $`x=r_s+Gv`$. The sign at $`z`$ factors as
 
@@ -108,7 +108,7 @@ The bounds count coherent width and meter records. They assume access to ideal c
 
 Fix a syndrome class and let $`S`$ be the span of its product flag states. Any two distinct flag states $`|f\rangle`$ and $`|g\rangle`$ in this class are linearly independent and satisfy $`0\lt |\langle f|g\rangle|\lt 1`$. Fix the early instrument. Write its Kraus operators as $`K_{b,j}`$ from the flag space to a register of dimension $`d`$, with $`b`$ the retained classical outcome and $`j`$ an unobserved index. The optimal decision after the cut may condition on $`b`$ and the prior.
 
-For two different positive prior ratios $`\lambda`$ and $`\mu`$, the optimal full-record binary tests are specified by the positive and negative eigenvectors of $`\lambda|f\rangle\langle f|-|g\rangle\langle g|`$ and $`\mu|f\rangle\langle f|-|g\rangle\langle g|`$. Each has one strictly positive and one strictly negative eigenvalue on $`S_{fg}=\operatorname{span}(f,g)`$. Their eigenprojectors fail to commute because the two weighted differences have a nonzero commutator on $`S_{fg}`$.
+For two different positive prior ratios $`\lambda`$ and $`\mu`$, the optimal full-record binary tests are specified by the positive and negative eigenvectors of $`\lambda|f\rangle\langle f|-|g\rangle\langle g|`$ and $`\mu|f\rangle\langle f|-|g\rangle\langle g|`$. Each has one strictly positive and one strictly negative eigenvalue on $`S_{fg}=\mathrm{span}(f,g)`$. Their eigenprojectors fail to commute because the two weighted differences have a nonzero commutator on $`S_{fg}`$.
 
 For either prior, let $`e_+,e_-`$ be the two sign eigenvectors and let $`0\le M_b\le I`$ be the effect for the positive decision after $`b`$. Optimality forces the pulled-back effect to have expectation one on $`e_+`$ and zero on $`e_-`$. The upper and lower bounds on $`M_b`$ then imply
 
