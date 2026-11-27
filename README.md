@@ -10,6 +10,13 @@ In a four-site example with independent bit flips of probability $`1/4`$ and fla
 | Can a purely classical record match it? | It cannot attain the ideal optimum in the biased four-flag example. At equal priors a collective early measurement can attain the optimum. |
 | What changes for a binary linear syndrome $`Hx=s`$? | $`k=\dim\ker H`$ coherent qubits preserve every conditional decision. They are necessary for a fixed early instrument that must work for all priors on a syndrome class with a nonconstant decision label. |
 
+## Run the streaming decoder
+
+1. **Keep one flag.** Use the first supplied flag as the accumulator and record its site. For each new flag, initialize one auxiliary qubit to zero and apply the [calibrated three-qubit fusion](science/streaming-decoder.md#resources-and-implementation). Measure both meter qubits in the computational basis and release them. If their two-bit record selects the incoming flag's sign, update the retained site index. Every outcome supplies a valid accumulator.
+2. **Use the syndrome.** When the adjacent-check syndrome arrives, compute its two candidate error patterns and their conditional probabilities. Use the retained site to match the accumulator's two candidate states to those patterns. Rotate to the known [binary decision basis](learning/WATROUS_BRIDGE.md#translate-the-notation), measure the accumulator and return the selected Pauli correction for the recovery endpoint to apply to the code block.
+
+One supplied flag is consumed per site. The persistent record is one qubit and a classical site index. The circuit also requires auxiliary preparation and release, two meter bits per fusion, calibrated overlaps and controls, and the final basis rotation. The [full-record benchmark](science/model.md#full-record-optimum) gives the ideal logical error. The [noise analysis](science/noise.md) accounts for specified deviations.
+
 ## Read the science
 
 - [Model and exact recovery objective](science/model.md) defines the flag channel, the syndrome cut and the full-record benchmark.
